@@ -42,6 +42,18 @@ class TestCalculator(unittest.TestCase):
         # assert
         self.assertEqual(expected, actual)
 
+    def test_div(self):
+        # arrange
+        a = 18
+        b = 7
+        expected = 2
+
+        # action
+        actual = Calculator.div(a, b)
+
+        # assert
+        self.assertEqual(expected, actual)
+
 
 if __name__ == "__main__":
     unittest.main()
