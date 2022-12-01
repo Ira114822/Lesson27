@@ -1,24 +1,17 @@
 class Calculator:
     @staticmethod
     def sum(a,b):
-        pass
+        return a + b
 
     @staticmethod
     def sub(a,b):
-        pass
+        return a - b
 
     @staticmethod
     def mul(a, b):
-        pass
+        return a * b
 
     @staticmethod
     def div(a, b):
-        pass
+        return a // b
 
-
-def main():
-    pass
-
-
-if __name__ == "__main__":
-    main()
