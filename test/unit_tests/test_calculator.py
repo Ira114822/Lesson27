@@ -1,81 +1,64 @@
 import unittest
+
 from model.calculator import Calculator
 
 
 class TestCalculator(unittest.TestCase):
 
+    # calc = Calculator()
+    @classmethod
+    def setUpClass(cls):
+        # print("setUpClass")
+        cls.calc = Calculator()
 
-    def init(self, a, b):
-        self.calc = Calculator(a, b)
+    @classmethod
+    def tearDownClass(cls):
+        # print("tearDownClass")
+        del cls.calc
 
-    def destroy(self):
-        del self.calc
-    # AAA
+
     def test_sum(self):
+        print("test_sum")
         # arrange
-        a = 10
-        b = 20
-        self.init(a, b)
+        TestCalculator.calc.a = 10
+        TestCalculator.calc.b = 20
         expected = 30
 
         # action
-        actual = self.calc.sum()
+        actual = TestCalculator.calc.sum()
 
         # assert
         self.assertEqual(expected, actual)
-        self.assertEqual(1, self.calc.count)
-
-        self.destroy()
 
     def test_sub(self):
-        # arrange
-        a = 10
-        b = 7
-        self.init(a, b)
+        print("test_sub")
+        TestCalculator.calc.a = 10
+        TestCalculator.calc.b = 7
         expected = 3
 
-        # action
-        actual = self.calc.sub()
+        actual = TestCalculator.calc.sub()
 
-
-        # assert
         self.assertEqual(expected, actual)
-        self.assertEqual(1, self.calc.count)
-
-        self.destroy()
 
     def test_mul(self):
-        # arrange
-        a = 8
-        b = 7
-        self.init(a, b)
+        print("test_mul")
+        TestCalculator.calc.a = 8
+        TestCalculator.calc.b = 7
         expected = 56
 
-        # action
-        actual = self.calc.mul()
+        actual = TestCalculator.calc.mul()
 
-        # assert
         self.assertEqual(expected, actual)
-        self.assertEqual(1, self.calc.count)
-
-        self.destroy()
 
     def test_div(self):
-        # arrange
-        a = 18
-        b = 7
-        self.init(a, b)
+        print("test_div")
+        TestCalculator.calc.a = 18
+        TestCalculator.calc.b = 7
         expected = 2
 
+        actual = TestCalculator.calc.div()
 
-        # action
-        actual = self.calc.div()
-
-        # assert
         self.assertEqual(expected, actual)
-        self.assertEqual(1, self.calc.count)
-
-        self.destroy()
 
 
 if __name__ == "__main__":
